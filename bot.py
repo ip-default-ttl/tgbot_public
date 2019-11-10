@@ -26,6 +26,9 @@ def main():
     offst=-1
     while True:
         our_json=get_updates_json(url,offst)
+        while ('result' not in our_json):
+            our_json=get_updates_json(url,offst)
+            sleep (1)
         if (len(our_json['result'])==0):
             sleep (3)
             continue
